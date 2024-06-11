@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { LuDatabaseBackup } from "react-icons/lu";
+import { LuArchiveRestore } from "react-icons/lu";
 
 const Welcome = () => {
   const { user } = useSelector((state) => state.auth);
@@ -120,8 +122,8 @@ const Welcome = () => {
   return (
     <div>
       <div className="container mt-5">
-        <h1 className="title has-text-link">Hi...</h1>
-        <h2 className="subtitle">
+        <h1 className="title has-text-success">Hi...</h1>
+        <h2 className="subtitle has-text-black">
           Welcome back{' '}
           <strong className="has-text-black">{user && user.name}</strong>
         </h2>
@@ -181,9 +183,10 @@ const Welcome = () => {
         {user && user.role === 'admin' && (
           <>
             <button
-              className="button is-primary mb-5"
+              className="button is-primary mb-5 has-text-white"
               onClick={backupDatabase}
             >
+              <LuDatabaseBackup size={25} />
               Backup Database
             </button>
             <div>
@@ -195,7 +198,8 @@ const Welcome = () => {
                   </span>
                   {file && <span className="file-name has-text-black">{file.name}</span>}
                 </label>
-                  <button className="button is-warning ml-4" type="submit" onClick={restoreDatabase}>
+                  <button className="button is-warning ml-4 has-text-white" type="submit" onClick={restoreDatabase}>
+                    <LuArchiveRestore size={25}/>
                     Restore Database
                   </button>
               </div>

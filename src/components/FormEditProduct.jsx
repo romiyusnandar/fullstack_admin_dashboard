@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { GrFormCheckmark } from "react-icons/gr";
 
 const FormEditProduct = () => {
   const [name, setName] = useState("");
@@ -81,6 +82,7 @@ const FormEditProduct = () => {
               <div className="field">
                 <div className="control">
                   <button type="submit" className="button is-success has-text-white">
+                    <GrFormCheckmark size={25} />
                     Update
                   </button>
                 </div>

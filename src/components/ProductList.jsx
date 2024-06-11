@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { PiDownload } from "react-icons/pi";
+import { BsDatabaseAdd } from "react-icons/bs";
+import { TbEdit } from "react-icons/tb";
+import { MdDeleteOutline } from "react-icons/md";
 
 export const ProductList = () => {
   const { user } = useSelector((state) => state.auth);
@@ -46,10 +50,12 @@ export const ProductList = () => {
       <h1 className="title has-text-success">Produk</h1>
       <h2 className="subtitle">Daftar produk</h2>
       <div className="mb-2">
-          <Link className="button is-primary mr-2" to="/products/add">
+          <Link className="button is-primary mr-2 has-text-white" to="/products/add">
+            <BsDatabaseAdd size={25}/>
             Tambah Baru
           </Link>
-          <button className="button is-success" onClick={downloadCSV}>
+          <button className="button is-success has-text-white" onClick={downloadCSV}>
+            <PiDownload size={25}/>
             Download Report
           </button>
         </div>
@@ -73,14 +79,16 @@ export const ProductList = () => {
                   <div>
                     <Link
                       to={`/product/edit/${data.uuid}`}
-                      className="button is-small is-info mr-2"
+                      className="button is-small is-info mr-2 has-text-white"
                     >
+                      <TbEdit size={25}/>
                       Edit
                     </Link>
                     <button
                       onClick={() => deleteProduct(data.uuid)}
-                      className="button is-small is-danger"
+                      className="button is-small is-danger has-text-white"
                     >
+                      <MdDeleteOutline size={25}/>
                       Hapus
                     </button>
                   </div>

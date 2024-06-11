@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { GrFormCheckmark } from "react-icons/gr";
 
 const FormAddUser = () => {
   const [name, setName] = useState("");
@@ -101,7 +102,8 @@ const FormAddUser = () => {
               </div>
               <div className="field">
                 <div className="control">
-                  <button type="submit" className="button is-success">
+                  <button type="submit" className="button is-success has-text-white">
+                    <GrFormCheckmark size={23}/>
                     Simpan
                   </button>
                 </div>
